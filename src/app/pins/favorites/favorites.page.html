@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-button>
+      <ion-title>Favorites</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngIf="pins.length === 0">
+    <ion-row style="padding-top: 10vh">
+      <ion-col style="text-align: center">
+        <ion-label style="color: #595959">No favorites yet</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="text-align: center">
+        <ion-icon name="file-tray-outline" size="large" style="color: #595959"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list lines="none">
+    <app-pin-element *ngFor="let pin of pins" [pin]="pin"></app-pin-element>
+  </ion-list>
+</ion-content>
